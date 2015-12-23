@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 
 # Pre-start functions
-print_log('Main', 'Running authorization towards B2')
+print_log('Main', 'Running in "' + os.getcwd() + '"')
 print_log('Main', 'Checking for data folder')
 if not os.path.exists(config['UPLOAD_FOLDER']):
   print_log('Main', 'Data folder not found, creating')
@@ -59,7 +59,6 @@ def upload_file():
       thread1.start()
       print_log('Thread', 'Adding to DB')
       file.save(os.path.join(config['UPLOAD_FOLDER'], filename))
-      #db.add_file(filename)
       thread1.join()
 
       data["file"] = filename

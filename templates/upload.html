@@ -1,7 +1,12 @@
 {% extends "layout.html" %}
 {% block body %}
-  <form action="" id="form" method="post" enctype="multipart/form-data" class="uploadForm">
-    <input id="file" type="file" name="file">
+  <form action="" id="form" name="fileForm" method="post" enctype="multipart/form-data" class="uploadForm">
+    <div class="uploadButton">
+      <input id="file" type="file" name="file">
+      <p>
+        Select a file
+      </p>
+    </div>
     <input type="hidden" name="source" value="web">
   </form>
   <script>
