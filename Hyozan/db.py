@@ -25,6 +25,19 @@ def add_b2(filename, file_id):
   db.commit()
   db.close()
 
+def get_old_files(targetTime):
+  db = connect('files.db')
+  cur = db.execute('SELECT file FROM files WHERE accessed <= ?', [targetTime,])
+  rv = cur.fetchall()
+  db.close()
+  return [dict(file=row[0]) for row in rv]
+
+def delete_entry(file):
+  db = connect('files.db')
+  db.execute('DELETE FROM files WHERE file = ?', [file,])
+  db.commit()
+  db.close()
+
 def check_value(column, value):
   db = connect('files.db')
   cur = db.execute('SELECT EXISTS(SELECT 1 FROM files WHERE ? = ?)', [column, value])

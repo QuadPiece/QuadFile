@@ -28,6 +28,18 @@ log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
 
 
+def delete_old():
+  targetTime = time.time() - config["TIME"]
+  old = db.get_old_files(targetTime)
+  for file in old:
+    try:
+      os.remove(os.path.join(config["UPLOAD_FOLDER"], file["file"]))
+    except Exception:
+      pass
+    db.delete_entry(file["file"])
+    print_log('Notice', 'Removed old file "' + file["file"] + '"')
+
+
 def auth(key):
   if config["KEY"] == "":
     return True
@@ -78,8 +90,10 @@ def upload_file():
 @app.route('/<filename>', methods=['GET'])
 def get_file(filename):
   print_log('Main', 'Hit "' + filename + '" - ' + time_to_string(time.time()))
+  db.update_file(filename)
   return send_from_directory(config['UPLOAD_FOLDER'], filename)
 
+delete_old()
 
 if __name__ == '__main__':
   app.run(
