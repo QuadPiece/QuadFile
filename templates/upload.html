@@ -1,14 +1,31 @@
-{% extends "layout.html" %}
+{% extends "shell.html" %}
 {% block body %}
+  <h1 class="title">
+    QuadFile
+  </h1>
   <form action="" id="form" name="fileForm" method="post" enctype="multipart/form-data" class="uploadForm">
     <div class="uploadButton">
       <p>
-        Select a file
+        Click to select a file
       </p>
       <input id="file" type="file" name="file">
     </div>
     <input type="hidden" name="source" value="web">
   </form>
+  <ul class="links">
+    <li>
+      <a href="/about">About</a>
+    </li>
+    <li>
+      <a href="/faq">F.A.Q</a>
+    </li>
+    <li>
+      <a href="/sharex">ShareX</a>
+    </li>
+    <li>
+      <a href="/terms">Terms</a>
+    </li>
+  </ul>
   <script>
   document.getElementById("file").onchange = function() {
     document.getElementById("form").submit();
