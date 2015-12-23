@@ -96,6 +96,15 @@ def upload_file():
     return render_template('upload.html', page=config["SITE_DATA"])
 
 
+@app.route('/about')
+def about():
+  return render_template('about.html')
+
+@app.route('/terms')
+def terms():
+  return render_template('terms.html')
+
+
 @app.route('/<filename>', methods=['GET'])
 def get_file(filename):
   print_log('Web', 'Hit "' + filename + '" - ' + time_to_string(time.time()))

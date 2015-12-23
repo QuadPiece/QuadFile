@@ -33,6 +33,12 @@ body {
   transform: translateY(-50%)
 }
 
+.note {
+  text-align: center;
+  font-size: 8pt;
+  color: #AAAAAA;
+}
+
 .title {
   font-size: 34pt;
   font-weight: 300;
