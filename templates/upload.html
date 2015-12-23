@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+  <form action="" id="form" method="post" enctype="multipart/form-data" class="uploadForm">
+    <input id="file" type="file" name="file">
+    <input type="hidden" name="source" value="web">
+  </form>
+  <script>
+  document.getElementById("file").onchange = function() {
+    document.getElementById("form").submit();
+  };
+  </script>
+{% endblock %}

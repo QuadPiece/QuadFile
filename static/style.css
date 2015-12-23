@@ -1,0 +1,69 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:700,300,400,100);
+
+/* Being lazy 101 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: #ffffff;
+  background-color: #101010;
+}
+
+.header {
+  width: 100%;
+  padding: 10px;
+}
+
+.header h1 {
+  font-size: 36pt;
+  font-weight: 300;
+  text-align: center;
+}
+
+.header .inner {
+  width: 100%;
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page {
+  width: 100%;
+  max-width: 920px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.uploadForm {
+  width: 100%;
+  text-align: center;
+}
+
+.uploadForm input[type="file"] {
+  padding: 10px;
+  font-size: 12pt;
+  font-weight: 300;
+  border: none;
+  display: inline-block;
+}
+
+.uploadForm input[type="submit"] {
+  width: 100%;
+  padding: 20px;
+  font-size: 12pt;
+  font-weight: 300;
+  max-width: 320px;
+  background-color: #229922;
+  margin-top: 10px;
+  color: #FFFFFF;
+  border: none;
+}
+
+.uploadForm input[type="submit"]:hover {
+  background-color: #33BB33;
+}

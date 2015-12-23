@@ -1,0 +1,8 @@
+# JetBrains files
+.idea/*
+# Configuration
+conf.py
+# Data
+data/*
+auth_data.json
+files.db
