@@ -13,6 +13,11 @@ body {
   background-color: #2d2d2d;
 }
 
+@keyframes rise {
+    from {margin-top: 50px;opacity:0;}
+    to {margin-top: 0;opacity1;}
+}
+
 .page {
   width: 100%;
   max-width: 920px;
@@ -28,6 +33,7 @@ body {
   font-weight: 300;
   margin-bottom: 20px;
   text-align: center;
+  animation: rise 1s ease-out;
 }
 
 .links {
@@ -42,6 +48,7 @@ body {
   display: inline-block;
   padding: 5px;
   width: 25%;
+  animation: rise 2s ease-out;
 }
 
 .links li a {
@@ -56,6 +63,7 @@ body {
 .uploadForm {
   width: 100%;
   text-align: center;
+  animation: rise 1.5s ease-out;
 }
 
 .uploadButton {
