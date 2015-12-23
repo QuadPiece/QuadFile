@@ -21,6 +21,7 @@ config["ALLOWED_EXTENSIONS"] = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 # If this is set to true, old files will be deleted. TIME is how far behind (in seconds) the last accessed time can be before files get deleted
 config["DELETE_FILES"] = True
 config["TIME"] = 30
+config["CLEAN_INTERVAL"] = 120
 
 # Site info displayed to the user
 config["SITE_DATA"] = {

@@ -4,5 +4,6 @@
 conf.py
 # Data
 data/*
+legacy/*
 auth_data.json
 files.db

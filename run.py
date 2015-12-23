@@ -28,16 +28,24 @@ log = logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
 
 
+def cleaner_thread():
+  # This is horrid
+  while True:
+    print_log('Notice', 'Cleaner started')
+    delete_old()
+    time.sleep(config["CLEAN_INTERVAL"])
+
+
 def delete_old():
   targetTime = time.time() - config["TIME"]
   old = db.get_old_files(targetTime)
   for file in old:
+    print_log('Notice', 'Removing old file "' + file["file"] + '"')
     try:
       os.remove(os.path.join(config["UPLOAD_FOLDER"], file["file"]))
     except Exception:
-      pass
+      print_log('Warning', 'Failed to delete old file "' + file["file"] + '"')
     db.delete_entry(file["file"])
-    print_log('Notice', 'Removed old file "' + file["file"] + '"')
 
 
 def auth(key):
@@ -56,6 +64,7 @@ def allowed_file(filename):
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
   if request.method == 'POST':
+    print_log('Web', 'New file Relieved')
     if not auth(request.headers.get('X-Hyozan-Auth')):
       abort(403)
     data = dict()
@@ -75,7 +84,7 @@ def upload_file():
 
       data["file"] = filename
       data["url"] = config["DOMAIN"] + "/" + filename
-      print_log('Main', 'New file processed')
+      print_log('Main', 'New file processed "' + filename + '"')
 
       if request.form["source"] == "web":
         return redirect(url_for('get_file', filename=filename), code=302)
@@ -89,15 +98,21 @@ def upload_file():
 
 @app.route('/<filename>', methods=['GET'])
 def get_file(filename):
-  print_log('Main', 'Hit "' + filename + '" - ' + time_to_string(time.time()))
+  print_log('Web', 'Hit "' + filename + '" - ' + time_to_string(time.time()))
   db.update_file(filename)
   return send_from_directory(config['UPLOAD_FOLDER'], filename)
 
-delete_old()
+@app.route('/share/<filename>')
+@app.route('/file/<filename>')
+def serve_legacy(filename):
+  return send_from_directory('legacy', filename)
 
+cleaner = Thread(target = cleaner_thread, )
+cleaner.start()
 if __name__ == '__main__':
   app.run(
     port=config["PORT"],
     host=config["HOST"],
     debug=config["DEBUG"]
   )
+cleaner.join(timeout=15)
