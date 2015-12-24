@@ -86,9 +86,10 @@ def upload_file():
       data["url"] = config["DOMAIN"] + "/" + filename
       print_log('Main', 'New file processed "' + filename + '"')
 
-      if request.form["source"] == "web":
-        return redirect(url_for('get_file', filename=filename), code=302)
-      else:
+      try:
+        if request.form["source"] == "web":
+          return redirect(url_for('get_file', filename=filename), code=302)
+      except Exception:
         return json.dumps(data)
 
   # Return Web UI if we have a GET request
