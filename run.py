@@ -57,6 +57,10 @@ def auth(key):
     return False
 
 
+def error_page(error):
+  return render_template('error.html', page=config["SITE_DATA"], error=error)
+
+
 def allowed_file(filename):
   if config["ALLOW_ALL_FILES"]:
     return True
@@ -96,7 +100,7 @@ def upload_file():
         return json.dumps(data)
     else:
       print_log('Notice', 'Forbidden file received')
-      return render_template('error.html', page=config["SITE_DATA"], error="This file isn't allowed, sorry!")
+      return error_page("This file isn't allowed, sorry!")
 
   # Return Web UI if we have a GET request
   elif request.method == 'GET':
@@ -115,6 +119,11 @@ def privacy():
 @app.route('/faq')
 def faq():
   return render_template('faq.html', page=config["SITE_DATA"])
+
+# Custom 404
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('error.html', page=config["SITE_DATA"], error="We couldn't find that. Are you sure you know what you're looking for?"), 404
 
 
 @app.route('/<filename>', methods=['GET'])
