@@ -2,6 +2,17 @@
 
 A temporary (or permanent, depending on configuration) file sharing service written in Flask
 
+# Features
+
+* Automatically remove files that aren't accessed often enough
+* Supports all filetypes
+* Prevents duplicate filenames
+* Works on all platforms (as long as they can use basic JavaScript)
+* Both easy to set up and use
+* Threaded for effective use of resources
+* Color-coded and real-time console log
+* Easy to use with most applications, such as ShareX
+
 # Requirements
 
 * Python 3 (Python 2 might work, dunno, i don't test that, don't care either)
