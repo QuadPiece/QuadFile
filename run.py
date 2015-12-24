@@ -58,13 +58,16 @@ def auth(key):
 
 
 def allowed_file(filename):
+  if config["ALLOW_ALL_FILES"]:
+    return True
+  else:
     return '.' in filename and filename.rsplit('.', 1)[1] in config["ALLOWED_EXTENSIONS"]
 
 
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
   if request.method == 'POST':
-    print_log('Web', 'New file Received')
+    print_log('Web', 'New file received')
     if not auth(request.headers.get('X-Hyozan-Auth')):
       abort(403)
     data = dict()
@@ -92,7 +95,8 @@ def upload_file():
       except Exception:
         return json.dumps(data)
     else:
-      return render_template('error.html')
+      print_log('Notice', 'Forbidden file received')
+      return render_template('error.html', page=config["SITE_DATA"], error="This file isn't allowed, sorry!")
 
   # Return Web UI if we have a GET request
   elif request.method == 'GET':
