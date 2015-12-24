@@ -1,14 +1,40 @@
+{%  extends "regular.html" %}
+{% block body %}
 
-<html>
-  <head>
-    <title>QuadFile info</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-  </head>
-  <body>
+  <h1>
+    Temporary storage
+  </h1>
+  <p>
+    {{ page.title }} is now a temporary storage service.
+  </p>
+  <p>
+    I've shifted from permanent storage to temporary storage. The main reason being that about 93% of files uploaded to the old site were never accessed again after the first week.
+  </p>
+  <p>
+    Now hold your horses - We don't delete files one week after upload. We delete them one week after they were last accessed.
+  </p>
+  <p>
+    Meaning that if you upload a file on December 10th and someone accesses that file on the 13th. Then we won't delete the file until the 20th. If someone then visits the file on the 17th, the counter resets again and your file will stay until December 25th.
+  </p>
 
-    <p>
-      This page is not yet done, just know this: Files are cleaned at set interval, do not use this for long time storage.
-    </p>
+  <h1>
+    History
+  </h1>
+  <p>
+    {{ page.title }} was a file sharing service that ran from 2014 into mid-2015. People loved it. It was fast, free, and extremely dumb-ass-simple to use, everything you'd want.
+  </p>
+  <p>
+    Unfortunately, running a service like that isn't really easy, nor affordable. So it ended up shutting down.
+  </p>
 
-  </body>
-</html>
+  <h1>
+    The new {{ page.title }}
+  </h1>
+  <p>
+    Christmas 2015, {{ page.title }} returned, better than ever.
+  </p>
+  <p>
+    It now uses a database (SQLite counts okay, don't hate me), it has been rewritten from scratch using Python, it's multi-threaded, it rocks. Resource usage is approximately one fourth that of the old site - while also being faster
+  </p>
+
+{% endblock %}

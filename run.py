@@ -99,11 +99,11 @@ def upload_file():
 
 @app.route('/about')
 def about():
-  return render_template('about.html')
+  return render_template('about.html', page=config["SITE_DATA"])
 
 @app.route('/terms')
 def terms():
-  return render_template('terms.html')
+  return render_template('terms.html', page=config["SITE_DATA"])
 
 
 @app.route('/<filename>', methods=['GET'])

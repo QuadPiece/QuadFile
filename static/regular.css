@@ -23,21 +23,21 @@ body {
     to {opacity:1;}
 }
 
-.page {
+.a4 {
   width: 100%;
   max-width: 920px;
-  padding: 10px;
+  padding: 15px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50vh;
-  transform: translateY(-50%)
+  animation: appear 0.75s ease-out;
 }
 
-.note {
-  text-align: center;
-  font-size: 8pt;
-  color: #AAAAAA;
-  animation: appear 0.75s ease-out;
+.a4 .title {
+  font-size: 24pt;
+  font-weight: 300;
+  text-align: right;
+  margin: 0;
+  animation: rise 0.75s ease-out;
 }
 
 .title {
@@ -72,40 +72,23 @@ body {
   text-decoration: underline;
 }
 
-.uploadForm {
-  width: 100%;
-  text-align: center;
-  animation: appear 0.75s ease-out;
+/* Restyle with custom margins */
+
+p {
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
-.uploadButton {
-  position: relative;
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 100%;
-  cursor: pointer;
-  background-color: #229922;
-  border-radius: 10px;
-  transition: background 0.1s ease-out;
-  overflow: hidden;
+h1 {
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
 
-.uploadButton:hover {
-  background-color: #33BB33;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.uploadButton p {
-  padding: 20px;
-  font-weight: 300;
-  font-size: 24pt;
-}
-
-.uploadButton input[type="file"] {
-  position: absolute;
-  display: block;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  right: 0;
-  opacity: 0;
+a:hover {
+  text-decoration: underline;
 }

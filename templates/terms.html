@@ -1,19 +1,14 @@
-
-<html>
-  <head>
-    <title>QuadFile info</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-  </head>
-  <body>
-    <p>This section is currently not complete, more will be added</p>
-    <h1 id="limits">Limits</h1>
+{%  extends "regular.html" %}
+{% block body %}
+    <h1 id="limits">Terms</h1>
     <ul>
-    <li><strong>You</strong> are responsible for the file you upload</li>
-    <li>The max file size is <strong>100 MB</strong></li>
-    <li>Files may be deleted if requested by the content owner</li>
-    <li>If I find illegal content (eg. CP, viruses and such) it will instantly be deleted</li>
-    <li>Only certain filetypes are allowed</li>
-</ul>
-
-  </body>
-</html>
+      <li><strong>You</strong> are responsible for the file you upload</li>
+      <li>The max file size is <strong>100 MiB</strong></li>
+      <li>Files are deleted when they haven't been accessed for a week.</li>
+      <li>Files may be deleted if requested by the content owner</li>
+      <li>If I find illegal content (eg. CP, viruses and such) it will instantly be deleted</li>
+      <li>Only certain filetypes are allowed</li>
+      <li>More terms may be added to this list without warning</li>
+      <li>TL;DR Don't be an asshole and blame me for something that happens</li>
+    </ul>
+{% endblock %}

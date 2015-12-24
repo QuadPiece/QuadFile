@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='regular.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="a4">
+      <h1 class="title">
+        <a href="/">{{ page.title }}</a>
+      </h1>
+      {% block body %}{% endblock %}
+    </div>
+  </body>
+</html>
