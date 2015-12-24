@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from flask import Flask, Response, request, redirect, url_for, send_from_directory, abort, render_template
+from flask import Flask, request, redirect, url_for, send_from_directory, abort, render_template
 from werkzeug import secure_filename
 from threading import Thread
 import logging
@@ -95,7 +95,7 @@ def upload_file():
 
       try:
         if request.form["source"] == "web":
-          return redirect(url_for('get_file', filename=filename), code=302)
+          return render_template('link.html', data=data, page=config["SITE_DATA"])
       except Exception:
         return json.dumps(data)
     else:

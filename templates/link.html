@@ -1,0 +1,9 @@
+{% extends "shell.html" %}
+{% block body %}
+  <h1 class="title">
+    Here's your link:
+  </h1>
+  <p style="text-align: center;">
+    <a class="fileLink" href="{{ data.url }}">{{ data.url }}</a>
+  </p>
+{% endblock %}

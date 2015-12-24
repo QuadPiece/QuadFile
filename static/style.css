@@ -63,12 +63,12 @@ body {
   animation: rise 1s ease-out;
 }
 
-.links li a {
+.links li a, .fileLink {
   color: inherit;
   text-decoration: none;
 }
 
-.links li a:hover {
+.links li a:hover, .fileLink {
   text-decoration: underline;
 }
 
