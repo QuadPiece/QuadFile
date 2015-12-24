@@ -1,6 +1,6 @@
 # QuadFile Version 2
 
-A temporary (or permanent, depending on configuration) file sharing service written in Flask
+A temporary (or permanent, depending on configuration) file sharing service written in Flask.
 
 # Features
 
