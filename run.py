@@ -123,7 +123,7 @@ def faq():
 # Custom 404
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('error.html', page=config["SITE_DATA"], error="We couldn't find that. Are you sure you know what you're looking for?"), 404
+    return error_page("We couldn't find that. Are you sure you know what you're looking for?"), 404
 
 
 @app.route('/<filename>', methods=['GET'])
