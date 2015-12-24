@@ -119,6 +119,8 @@ def privacy():
 @app.route('/faq')
 def faq():
   return render_template('faq.html', page=config["SITE_DATA"])
+def favicon():
+  return send_from_directory('static', 'favicon.ico')
 
 # Custom 404
 @app.errorhandler(404)
