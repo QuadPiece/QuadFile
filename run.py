@@ -98,14 +98,19 @@ def upload_file():
   elif request.method == 'GET':
     return render_template('upload.html', page=config["SITE_DATA"])
 
-
+# Def all the static pages
 @app.route('/about')
 def about():
   return render_template('about.html', page=config["SITE_DATA"])
-
 @app.route('/terms')
 def terms():
   return render_template('terms.html', page=config["SITE_DATA"])
+@app.route('/privacy')
+def privacy():
+  return render_template('privacy.html', page=config["SITE_DATA"])
+@app.route('/faq')
+def faq():
+  return render_template('faq.html', page=config["SITE_DATA"])
 
 
 @app.route('/<filename>', methods=['GET'])
