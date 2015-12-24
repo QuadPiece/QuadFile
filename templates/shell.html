@@ -5,6 +5,20 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- Meta tags for web app usage -->
+		<meta content="#2D2D2D" name="theme-color">
+		<meta content="yes" name="mobile-web-app-capable">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+
+    <!-- Logo links -->
+		<link href="{{ url_for('static', filename='logo/128px.png') }}" rel="apple-touch-icon">
+		<link href="{{ url_for('static', filename='logo/16px.png') }}" rel="icon" sizes="16x16">
+		<link href="{{ url_for('static', filename='logo/32px.png') }}" rel="icon" sizes="32x32">
+		<link href="{{ url_for('static', filename='logo/64px.png') }}" rel="icon" sizes="64x64">
+		<link href="{{ url_for('static', filename='logo/128px.png') }}" rel="icon" sizes="152x152">
+
   </head>
   <body>
     <div class="page">
