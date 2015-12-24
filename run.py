@@ -64,7 +64,7 @@ def allowed_file(filename):
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
   if request.method == 'POST':
-    print_log('Web', 'New file Relieved')
+    print_log('Web', 'New file Received')
     if not auth(request.headers.get('X-Hyozan-Auth')):
       abort(403)
     data = dict()
@@ -109,7 +109,10 @@ def terms():
 @app.route('/<filename>', methods=['GET'])
 def get_file(filename):
   print_log('Web', 'Hit "' + filename + '" - ' + time_to_string(time.time()))
-  db.update_file(filename)
+  try:
+    db.update_file(filename)
+  except Exception:
+    print_log('Warning', 'Unable to update access time. Is the file in the database?')
   return send_from_directory(config['UPLOAD_FOLDER'], filename)
 
 @app.route('/share/<filename>')
