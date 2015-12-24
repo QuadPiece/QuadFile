@@ -5,14 +5,13 @@
   </h1>
   <form action="" id="form" name="fileForm" method="post" enctype="multipart/form-data" class="uploadForm">
     <div class="uploadButton">
-      <p>
+      <p id="uploadText">
         Click to select a file
       </p>
       <input id="file" type="file" name="file">
     </div>
     <input type="hidden" name="source" value="web">
   </form>
-  <p class="note">This is temporary storage. Check the about page for details</p>
   <ul class="links">
     <li>
       <a href="/about">About</a>
@@ -29,6 +28,7 @@
   </ul>
   <script>
   document.getElementById("file").onchange = function() {
+    document.getElementById("uploadText").innerHTML = "Uploading...";
     document.getElementById("form").submit();
   };
   </script>
