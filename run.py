@@ -91,6 +91,8 @@ def upload_file():
           return redirect(url_for('get_file', filename=filename), code=302)
       except Exception:
         return json.dumps(data)
+    else:
+      return render_template('error.html')
 
   # Return Web UI if we have a GET request
   elif request.method == 'GET':
