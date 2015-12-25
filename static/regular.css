@@ -106,3 +106,12 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+ul {
+  list-style: none;
+  padding-left: 15px;
+}
+
+ul li:before {
+  content: "- ";
+}
