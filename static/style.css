@@ -82,6 +82,7 @@ body {
 .links li a, .fileLink {
   color: inherit;
   text-decoration: none;
+  color: #999999;
 }
 
 .links li a:hover, .fileLink {
