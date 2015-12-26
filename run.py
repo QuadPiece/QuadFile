@@ -140,6 +140,16 @@ def get_file(filename):
 def serve_legacy(filename):
   return send_from_directory('legacy', filename)
 
+
+# Configure nginx to use these urls as custom error pages
+@app.route('/error/<int:error>')
+def nginx_error(error):
+  if error == 413:
+    return error_page("O-o-onii-chan, noo it's too big ~~"), 413
+  else:
+    error_page("We literally have no idea what just happened")
+
+
 cleaner = Thread(target = cleaner_thread, )
 cleaner.start()
 if __name__ == '__main__':
