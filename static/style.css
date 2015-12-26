@@ -111,6 +111,16 @@ body {
   background-color: #33BB33;
 }
 
+@keyframes pulse {
+  0% {background-color: #117711;}
+  50% {background-color: #44CC44;}
+  100% {background-color: #117711;}
+}
+
+.uploading {
+  animation: pulse 3s infinite;
+}
+
 .uploadButton p {
   padding: 20px;
   font-weight: 300;

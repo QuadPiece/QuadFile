@@ -4,7 +4,7 @@
     QuadFile
   </h1>
   <form action="" id="form" name="fileForm" method="post" enctype="multipart/form-data" class="uploadForm">
-    <div class="uploadButton">
+    <div id="uploadButton" class="uploadButton">
       <p id="uploadText">
         Click to select a file
       </p>
@@ -29,6 +29,8 @@
   <script>
   document.getElementById("file").onchange = function() {
     document.getElementById("uploadText").innerHTML = "Uploading...";
+    var button = document.getElementById("uploadButton");
+    button.className = button.className + " uploading";
     document.getElementById("form").submit();
   };
   </script>
