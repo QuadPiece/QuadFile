@@ -57,8 +57,8 @@ def auth(key):
     return False
 
 
-def error_page(error):
-  return render_template('error.html', page=config["SITE_DATA"], error=error)
+def error_page(error, code):
+  return render_template('error.html', page=config["SITE_DATA"], error=error, code=code)
 
 
 def allowed_file(filename):
@@ -100,7 +100,7 @@ def upload_file():
         return json.dumps(data)
     else:
       print_log('Notice', 'Forbidden file received')
-      return error_page("This file isn't allowed, sorry!")
+      return error_page(error="This file isn't allowed, sorry!", code=403)
 
   # Return Web UI if we have a GET request
   elif request.method == 'GET':
@@ -123,7 +123,13 @@ def faq():
 # Custom 404
 @app.errorhandler(404)
 def page_not_found(e):
-    return error_page("We couldn't find that. Are you sure you know what you're looking for?"), 404
+    return error_page(error="We couldn't find that. Are you sure you know what you're looking for?", code=404), 404
+@app.errorhandler(500)
+def page_not_found(e):
+    return error_page(error="Oops, this is an unknown error, not good.", code=500), 500
+@app.errorhandler(403)
+def page_not_found(e):
+    return error_page(error="Check your privilege yo", code=403), 403
 
 
 @app.route('/<filename>', methods=['GET'])
@@ -145,9 +151,9 @@ def serve_legacy(filename):
 @app.route('/error/<int:error>')
 def nginx_error(error):
   if error == 413:
-    return error_page("O-o-onii-chan, noo it's too big ~~"), 413
+    return error_page(error="O-o-onii-chan, noo it's too big ~~", code=413), 413
   else:
-    error_page("We literally have no idea what just happened")
+    return error_page(error="We literally have no idea what just happened", code="Unknown")
 
 
 cleaner = Thread(target = cleaner_thread, )
