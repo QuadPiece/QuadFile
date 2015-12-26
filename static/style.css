@@ -63,7 +63,7 @@ body {
   animation: rise 1s ease-out;
 }
 
-@media all and (max-width: 480px){
+@media all and (max-width: 380px){
   .links li {
     width: 40%;
     margin-bottom: 20px;
