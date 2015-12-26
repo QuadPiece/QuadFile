@@ -25,7 +25,7 @@ body {
 
 .page {
   width: 100%;
-  max-width: 920px;
+  max-width: 720px;
   padding: 10px;
   margin-left: auto;
   margin-right: auto;
@@ -59,8 +59,14 @@ body {
   font-size: 12pt;
   display: inline-block;
   padding: 5px;
-  width: 25%;
+  width: 20%;
   animation: rise 1s ease-out;
+}
+
+@media all and (max-width: 600px){
+  .links li {
+    width: 40%;
+  }
 }
 
 .links li a, .fileLink {
