@@ -79,10 +79,6 @@ def upload_file():
 
     # Only continue if a file that's allowed gets submitted.
     if file and allowed_file(file.filename):
-      if config["CHECK_FILESIZE"]:
-        fileContent = request.files["file"].read()
-        if len(fileContent) >= config["MAX_FILESIZE"]:
-          return error_page("O-o-onii-chan, noo it's too big ~~"), 413
       filename = secure_filename(file.filename)
       while os.path.exists(os.path.join(config["UPLOAD_FOLDER"], filename)):
         filename = str(randint(1000,8999)) + '-' + secure_filename(filename)

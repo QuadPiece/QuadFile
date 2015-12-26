@@ -23,9 +23,6 @@ config["ALLOWED_EXTENSIONS"] = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 config["DELETE_FILES"] = True
 config["TIME"] = 30
 config["CLEAN_INTERVAL"] = 120
-# If possible, make your web server return a 413 instead of using this
-config["CHECK_FILESIZE"] = True
-config["MAX_FILESIZE"] = 1024 * 1024 * 100 # 100 MiB
 
 # Site info displayed to the user
 config["SITE_DATA"] = {
