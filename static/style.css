@@ -66,6 +66,7 @@ body {
 @media all and (max-width: 600px){
   .links li {
     width: 40%;
+    margin-bottom: 20px;
   }
 }
 
