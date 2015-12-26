@@ -59,14 +59,23 @@ body {
   font-size: 12pt;
   display: inline-block;
   padding: 5px;
-  width: 20%;
+  width: 15%;
   animation: rise 1s ease-out;
 }
 
-@media all and (max-width: 380px){
+@media all and (max-width: 360px){
   .links li {
     width: 40%;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+    padding: 5px;
+  }
+}
+
+@media all and (max-width: 600px){
+  .links li {
+    width: 20%;
+    margin-bottom: 5px;
+    padding: 5px;
   }
 }
 
