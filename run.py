@@ -120,6 +120,17 @@ def privacy():
 def faq():
   return render_template('faq.html', page=config["SITE_DATA"])
 
+# Static resources that browsers spam for
+@app.route('/favicon.ico')
+def favicon():
+  return send_from_directory('static', 'favicon.ico')
+@app.route('/apple-touch-icon.png')
+def favicon():
+  return send_from_directory('static', 'logo/152px.png')
+@app.route('/apple-touch-icon.png')
+def favicon():
+  return send_from_directory('static', 'robots.txt')
+
 # Custom 404
 @app.errorhandler(404)
 def page_not_found(e):
