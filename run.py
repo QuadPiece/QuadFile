@@ -125,10 +125,10 @@ def faq():
 def favicon():
   return send_from_directory('static', 'favicon.ico')
 @app.route('/apple-touch-icon.png')
-def favicon():
+def appleTouch():
   return send_from_directory('static', 'logo/152px.png')
-@app.route('/apple-touch-icon.png')
-def favicon():
+@app.route('/robots.txt')
+def robotsTxt():
   return send_from_directory('static', 'robots.txt')
 
 # Custom 404
