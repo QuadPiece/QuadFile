@@ -119,6 +119,9 @@ def privacy():
 @app.route('/faq')
 def faq():
   return render_template('faq.html', page=config["SITE_DATA"])
+@app.route('/dmca')
+def dmca():
+  return render_template('dmca.html', page=config["SITE_DATA"])
 
 # Static resources that browsers spam for
 @app.route('/favicon.ico')
