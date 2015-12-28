@@ -72,6 +72,13 @@ body {
   text-decoration: underline;
 }
 
+.note {
+  text-align: center;
+  font-size: 8pt;
+  color: #AAAAAA;
+  animation: appear 0.75s ease-out;
+}
+
 /* Restyle with custom margins */
 
 p {
