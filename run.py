@@ -4,6 +4,7 @@ from werkzeug import secure_filename
 from threading import Thread
 import logging
 import os
+import random
 import json
 import time
 from random import randint
@@ -121,7 +122,8 @@ def faq():
   return render_template('faq.html', page=config["SITE_DATA"])
 @app.route('/dmca')
 def dmca():
-  return render_template('dmca.html', page=config["SITE_DATA"])
+  video = random.choice(os.listdir("static/dmca/"))
+  return render_template('dmca.html', page=config["SITE_DATA"], video=video)
 
 # Static resources that browsers spam for
 @app.route('/favicon.ico')
