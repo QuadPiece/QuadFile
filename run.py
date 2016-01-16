@@ -141,10 +141,10 @@ def robotsTxt():
 def page_not_found(e):
     return error_page(error="We couldn't find that. Are you sure you know what you're looking for?", code=404), 404
 @app.errorhandler(500)
-def page_not_found(e):
+def internal_error(e):
     return error_page(error="Oops, this is an unknown error, not good.", code=500), 500
 @app.errorhandler(403)
-def page_not_found(e):
+def no_permission(e):
     return error_page(error="Check your privilege yo", code=403), 403
 
 
