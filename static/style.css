@@ -43,7 +43,7 @@ body {
 .title {
   font-size: 34pt;
   font-weight: 300;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   text-align: center;
   animation: appear 0.75s ease-out;
 }
