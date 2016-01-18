@@ -1,6 +1,7 @@
 from datetime import datetime
 import time
 
+# TODO: I dunno, but there's gotta be a better way to do this crap
 def print_log(source, message):
   if source == "Main":
     print('\033[92m' + source + ': \033[0m' + message)

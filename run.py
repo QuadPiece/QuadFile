@@ -19,7 +19,7 @@ from Hyozan.output import print_log, time_to_string
 app = Flask(__name__)
 
 
-# Pre-start functions
+# TODO: Try to turn these into functions or something I dunno
 print_log('Main', 'Running in "' + os.getcwd() + '"')
 print_log('Main', 'Checking for data folder')
 if not os.path.exists(config['UPLOAD_FOLDER']):
@@ -30,7 +30,7 @@ log.setLevel(logging.ERROR)
 
 
 def cleaner_thread():
-  # This is horrid
+  # TODO: Make this into a less shitty timer
   while True:
     print_log('Notice', 'Cleaner started')
     delete_old()

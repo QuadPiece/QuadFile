@@ -1,6 +1,8 @@
 import sqlite3
 import time
 
+# TODO: (Hopefully) add support for DB types other than SQLite
+
 def connect(target):
   return sqlite3.connect(target)
 
