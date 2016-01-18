@@ -1,17 +1,24 @@
 # Create an empty config dict
 config = dict()
+
 ##
 #
 #  Main server configuration
 #
 ##
+
 config["HOST"] = "127.0.0.1"
-# This string will be used in file URLs that are returned
-config["DOMAIN"] = "example.com"
+
+# This string will be used in file URLs that are returned, you will need to include http:// or https://
+config["DOMAIN"] = "http://example.com"
 config["PORT"] = 8282
+
+# Disable this for production use
 config["DEBUG"] = True
+
 # Extended debug will add extra debug output that's not normally provided by flask
 config["EXTENDED_DEBUG"] = False
+
 # Single user authentication, leave blank to disable authentication
 config["KEY"] = ""
 
@@ -19,6 +26,7 @@ config["KEY"] = ""
 config["UPLOAD_FOLDER"] = './data'
 config["ALLOW_ALL_FILES"] = True
 config["ALLOWED_EXTENSIONS"] = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+
 # If this is set to true, old files will be deleted. TIME is how far behind (in seconds) the last accessed time can be before files get deleted
 config["DELETE_FILES"] = True
 config["TIME"] = 30

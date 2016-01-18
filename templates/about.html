@@ -2,19 +2,22 @@
 {% block body %}
 
   <h1>
-    Temporary storage
+    Access-based storage
   </h1>
   <p>
-    {{ page.title }} is now a temporary storage service.
+    {{ page.title }} is a service that keeps files stored depending on their popularity.
   </p>
   <p>
-    I've shifted from permanent storage to temporary storage. The main reason being that about 93% of files uploaded to the old site were never accessed again after the first week.
+    File storage times are one week from when they were last accessed. Or one week since they were uploaded if they're never accessed.
   </p>
   <p>
-    Now hold your horses - We don't delete files one week after upload. We delete them one week after they were last accessed.
+    Meaning that if you upload a file on December 10th and someone accesses that file on the 13th, we won't delete the file until the 20th. If someone also fetched the file on the 17th, your file will stay until December 25th.
   </p>
   <p>
-    Meaning that if you upload a file on December 10th and someone accesses that file on the 13th. Then we won't delete the file until the 20th. If someone then visits the file on the 17th, the counter resets again and your file will stay until December 25th.
+    In a similar fashion; if you upload a file on December 3rd and send it to someone, then the file is never accessed again. It will be deleted on the 10th.
+  </p>
+  <p>
+    Even though I personally only do it to limit the server costs and keep the site running fast. Many users refer to this as a form of "Security Through Obscurity" since file URLs are whatever the user first uploaded and they will die at unpredictable times. Making it harder to brute-force file links
   </p>
 
   <h1>
