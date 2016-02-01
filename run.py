@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from flask import Flask, request, redirect, url_for, send_from_directory, abort, render_template
 from werkzeug import secure_filename
-from threading import Thread
+from threading import Thread, Timer
 import logging
 import os
 import random
@@ -30,11 +30,8 @@ log.setLevel(logging.ERROR)
 
 
 def cleaner_thread():
-  # TODO: Make this into a less shitty timer
-  while True:
-    print_log('Notice', 'Cleaner started')
-    delete_old()
-    time.sleep(config["CLEAN_INTERVAL"])
+  print_log('Notice', 'Cleaner started')
+  delete_old()
 
 
 def delete_old():
@@ -172,7 +169,7 @@ def nginx_error(error):
     return error_page(error="We literally have no idea what just happened", code="Unknown")
 
 
-cleaner = Thread(target = cleaner_thread, )
+cleaner = Timer(config["CLEAN_INTERVAL"], cleaner_thread)
 cleaner.start()
 if __name__ == '__main__':
   app.run(
