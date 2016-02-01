@@ -177,4 +177,5 @@ if __name__ == '__main__':
     host=config["HOST"],
     debug=config["DEBUG"]
   )
-cleaner.join(timeout=15)
+cleaner.cancel()
+cleaner.join()
