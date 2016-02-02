@@ -31,6 +31,13 @@ log.setLevel(logging.ERROR)
 
 def cleaner_thread():
   print_log('Notice', 'Cleaner started')
+
+  # Call itself again after the interval
+  cleaner = Timer(config["CLEAN_INTERVAL"], cleaner_thread)
+  cleaner.daemon = True # Daemons will attempt to exit cleanly along with the main process, which we want
+  cleaner.start()
+
+  # Actual function
   delete_old()
 
 
@@ -169,13 +176,11 @@ def nginx_error(error):
     return error_page(error="We literally have no idea what just happened", code="Unknown")
 
 
-cleaner = Timer(config["CLEAN_INTERVAL"], cleaner_thread)
-cleaner.start()
+
+cleaner_thread()
 if __name__ == '__main__':
   app.run(
     port=config["PORT"],
     host=config["HOST"],
     debug=config["DEBUG"]
   )
-cleaner.cancel()
-cleaner.join()
