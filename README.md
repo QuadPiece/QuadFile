@@ -9,14 +9,22 @@ A temporary (or permanent, depending on configuration) file sharing service writ
 * Prevents duplicate filenames
 * Works on all platforms (as long as they can use basic JavaScript)
 * Both easy to set up and use
-* Threaded for effective use of resources
+* Threaded for effective use of resources (Unless you're not on SSD, in which case, enjoy your I/O clogs m8)
 * Color-coded and real-time console log
 * Easy to use with most applications, such as ShareX
 
 # Requirements
 
+Needed: 
+
 * Python 3 (Python 2 might work, dunno, i don't test that, don't care either)
+* sqlite3 package for your OS (To create the database)
 * Install flask, currently that should be the only requirement and hopefully forever (``pip install -r requirements.txt``)
+
+Recommended:
+
+* nginx, great for proxy_pass
+* gunicorn, allows you to use QuadFile with multiple workers
 
 # Using the thing
 
