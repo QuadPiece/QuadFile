@@ -13,8 +13,8 @@ from random import randint
 from conf import config
 
 # Import Hyozan stuff
-from Hyozan import db
-from Hyozan.output import print_log, time_to_string
+from QuadFile import db
+from QuadFile.output import print_log, time_to_string
 
 app = Flask(__name__)
 

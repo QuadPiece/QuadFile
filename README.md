@@ -23,7 +23,8 @@ A temporary (or permanent, depending on configuration) file sharing service writ
 * Clone the repo somewhere
 * Do ``cp conf.py.sample conf.py``
 * Edit ``conf.py`` so that the information is correct
-* If possible, make it listen on ``127.0.0.1`` and then use something like nginx as a reverse proxy. For security purposes
+* `sqlite3 files.db < schema.sql`
+* If possible, make it listen on ``127.0.0.1`` and then use something like nginx as a reverse proxy. For security purposes. Using gunicorn and the WSGI entry point is even better if you know how to do that.
 * ``chmod +x run.py`` and then ``./run.py``
 * ???
 * PROFIT (Hopefully)
