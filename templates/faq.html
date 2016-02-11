@@ -1,6 +1,6 @@
 {%  extends "regular.html" %}
 {% block body %}
-  <h1 id="limits">Frequently asked questions</h1>
+  <h1>Frequently asked questions</h1>
 
   <h2>
     Can I use ShareX to upload?
@@ -21,9 +21,13 @@
   <h2>
     What powers this site?
   </h2>
-  <p>The server itself comes from RamNode, sitting behind CloudFlare.</p>
-  <p>The actual site is purely Python powered and only depends on Flask. The database is SQLite, but on SSD it works okay since this service isn't too write heavy.</p>
+  <p>Purely Python powered and only depends on Flask. The database is SQLite, works alright on SSD.</p>
 
+  <h2>
+    Is QuadFile open-source?
+  </h2>
+  <p><a href="https://github.com/QuadPiece/QuadFile">Yes.</a></p>
+  
   <h2>
     What is your logo supposed to be?
   </h2>
@@ -43,11 +47,6 @@
     Where can I donate?
   </h2>
   <p>You can't.</p>
-  <p>This is purely a novelty project for personal use, but it was opened up to the public as a free service. If you really want to donate, consider doing so to other projects of mine, such as <a href="http://openings.moe">openings.moe</a> </p>
-
-  <h2>
-    I get an "Internal server error" (Code 500), why?
-  </h2>
-  <p>The site is fresh, I still haven't implemented error handling for a lot of things. In those cases you will simply see that generic error page.</p>
+  <p>This is purely a novelty project for personal use, but it was opened up to the public as a free service. If you really want to donate, consider doing so to <a href="https://www.patreon.com/quadpiece">my patreon</a>, which covers all my personal projects </p>
 
 {% endblock %}
