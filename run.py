@@ -176,8 +176,9 @@ def nginx_error(error):
     return error_page(error="We literally have no idea what just happened", code="Unknown")
 
 
-
-cleaner_thread()
+if config["DELETE_FILES"]:
+  cleaner_thread()
+  
 if __name__ == '__main__':
   app.run(
     port=config["PORT"],
