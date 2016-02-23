@@ -12,7 +12,7 @@ from random import randint
 # Import our configuration
 from conf import config
 
-# Import Hyozan stuff
+# Import QuadFile stuff
 from QuadFile import db
 from QuadFile.output import print_log, time_to_string
 
