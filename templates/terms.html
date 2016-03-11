@@ -3,7 +3,9 @@
     <h1 id="limits">Terms</h1>
     <ul>
       <li><strong>You</strong> are responsible for the file you upload</li>
-      <li>The max file size is <strong>100 MiB</strong></li>
+      {% if page.size is defined %}
+      <li>The max file size is <strong>{{ page.size }}</strong></li>
+      {% endif %}
       <li>Files are deleted when they haven't been accessed for a week.</li>
       <li>Files may be deleted if requested by the content owner</li>
       <li>If I find illegal content (eg. CP, viruses and such) it will instantly be deleted</li>

@@ -34,5 +34,6 @@ config["CLEAN_INTERVAL"] = 120
 
 # Site info displayed to the user
 config["SITE_DATA"] = {
-  "title": "QuadFile"
+  "title": "QuadFile",
+  "size": "100 MiB" # This is only for display, please limit filesizes using your web server
 }
