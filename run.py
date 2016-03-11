@@ -30,8 +30,6 @@ log.setLevel(logging.ERROR)
 
 
 def cleaner_thread():
-  print_log('Notice', 'Cleaner started')
-
   # Call itself again after the interval
   cleaner = Timer(config["CLEAN_INTERVAL"], cleaner_thread)
   cleaner.daemon = True # Daemons will attempt to exit cleanly along with the main process, which we want
@@ -42,6 +40,7 @@ def cleaner_thread():
 
 
 def delete_old():
+  print_log('Notice', 'Cleaner running')
   targetTime = time.time() - config["TIME"]
   old = db.get_old_files(targetTime)
   for file in old:
