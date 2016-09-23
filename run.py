@@ -15,6 +15,7 @@ from conf import config
 # Import QuadFile stuff
 from QuadFile import db
 from QuadFile.output import print_log, time_to_string
+from QuadFile import application
 
 app = Flask(__name__)
 
@@ -53,15 +54,6 @@ def delete_old():
     db.delete_entry(file["file"])
 
 
-def auth(key):
-  if config["KEY"] == "":
-    return True
-  elif config["KEY"] == key:
-    return True
-  else:
-    return False
-
-
 def error_page(error, code):
   return render_template('error.html', page=config["SITE_DATA"], error=error, code=code)
 
@@ -77,7 +69,7 @@ def allowed_file(filename):
 def upload_file():
   if request.method == 'POST':
     print_log('Web', 'New file received')
-    if not auth(request.headers.get('X-Hyozan-Auth')):
+    if not application.auth(request.headers.get('X-Hyozan-Auth'), config["KEY"]):
       abort(403)
     data = dict()
     file = request.files['file']
