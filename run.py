@@ -25,8 +25,9 @@ print_log('Main', 'Checking for data folder')
 if not os.path.exists(config['UPLOAD_FOLDER']):
   print_log('Main', 'Data folder not found, creating')
   os.makedirs(config['UPLOAD_FOLDER'])
-log = logging.getLogger('werkzeug')
-log.setLevel(logging.ERROR)
+if config["EXTENDED_DEBUG"] == False:
+  log = logging.getLogger('werkzeug')
+  log.setLevel(logging.ERROR)
 
 
 def cleaner_thread():
