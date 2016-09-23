@@ -14,7 +14,7 @@ config["DOMAIN"] = "http://example.com"
 config["PORT"] = 8282
 
 # Disable this for production use
-config["DEBUG"] = True
+config["DEBUG"] = False
 
 # Extended debug will add extra debug output that's not normally provided by flask
 config["EXTENDED_DEBUG"] = False
