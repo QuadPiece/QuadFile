@@ -69,7 +69,7 @@ def allowed_file(filename):
 def upload_file():
   if request.method == 'POST':
     print_log('Web', 'New file received')
-    if not application.auth(request.headers.get('X-Hyozan-Auth'), config["KEY"]):
+    if not application.basicauth(request.headers.get('X-Hyozan-Auth'), config["KEY"]):
       abort(403)
     data = dict()
     file = request.files['file']
