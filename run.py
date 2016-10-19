@@ -164,6 +164,8 @@ def serve_legacy(filename):
 def nginx_error(error):
   if error == 413:
     return error_page(error="O-o-onii-chan, noo it's too big ~~", code=413), 413
+  elif error == 403: # Block IPs with your web server and return /error/403 for this page
+    return error_page(error="Sorry, the IP you're using has been blocked due to excessive abuse", code=403), 403
   else:
     return error_page(error="We literally have no idea what just happened", code="Unknown")
 
