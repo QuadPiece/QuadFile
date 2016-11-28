@@ -153,11 +153,6 @@ def get_file(filename):
     print_log('Warning', 'Unable to update access time. Is the file in the database?')
   return send_from_directory(config['UPLOAD_FOLDER'], filename)
 
-@app.route('/share/<filename>')
-@app.route('/file/<filename>')
-def serve_legacy(filename):
-  return send_from_directory('legacy', filename)
-
 
 # Configure nginx to use these urls as custom error pages
 @app.route('/error/<int:error>')
