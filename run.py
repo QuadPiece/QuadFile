@@ -62,7 +62,10 @@ def allowed_file(filename):
   if config["ALLOW_ALL_FILES"]:
     return True
   else:
-    return '.' in filename and filename.rsplit('.', 1)[1] in config["ALLOWED_EXTENSIONS"]
+    if config["BLACKLIST"]:
+      return '.' in filename and filename.rsplit('.', 1)[1] in config["BANNED_EXTENSIONS"]      
+    else:
+      return '.' in filename and filename.rsplit('.', 1)[1] in config["ALLOWED_EXTENSIONS"]
 
 
 @app.route('/', methods=['GET', 'POST'])
