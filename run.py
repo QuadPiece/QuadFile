@@ -63,7 +63,7 @@ def allowed_file(filename):
     return True
   else:
     if config["BLACKLIST"]:
-      return '.' in filename and filename.rsplit('.', 1)[1] in config["BANNED_EXTENSIONS"]      
+      return '.' in filename and filename.rsplit('.', 1)[1] not in config["BANNED_EXTENSIONS"]      
     else:
       return '.' in filename and filename.rsplit('.', 1)[1] in config["ALLOWED_EXTENSIONS"]
 
