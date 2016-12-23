@@ -27,6 +27,10 @@ config["UPLOAD_FOLDER"] = './data'
 config["ALLOW_ALL_FILES"] = True
 config["ALLOWED_EXTENSIONS"] = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
+# Will use blacklist if this is enabled. You must disable ALLOW_ALL_EXTENSIONS for this to take effect
+config["BLACKLIST"] = False
+config["BANNED_EXTENSIONS"] = set(['exe', 'html', 'js', 'php', 'msi'])
+
 # If this is set to true, old files will be deleted. TIME is how far behind (in seconds) the last accessed time can be before files get deleted
 config["DELETE_FILES"] = True
 config["TIME"] = 30
